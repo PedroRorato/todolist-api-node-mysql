@@ -25,22 +25,23 @@ module.exports = {
         
         let user = { name, email, password }
         let sql = 'INSERT INTO users SET ?';
-        db.query(sql, user, (err, result) => {
+        db.query(sql, user, (err) => {
             if(err) throw err;
+            return response.json({ message: 'User succesfully created!' });
         });
-        return response.json({ message: 'User succesfully created!' });
     },
 
     async update(request, response) {
 
         const { name, email, password } = request.body;
         
-        let user = { name, email, password }
-        let sql = 'INSERT INTO users SET ?';
-        db.query(sql, user, (err, result) => {
+        let sql = `UPDATE users SET
+            name = '${name}', email = '${email}', password = '${password}'
+            WHERE id = ${request.params.id}`;
+        db.query(sql, (err) => {
             if(err) throw err;
+            return response.json({ message: 'User succesfully updated!' });
         });
-        return response.json({ message: 'User succesfully created!' });
     },
 
     async destroy(request, response) {
@@ -48,10 +49,10 @@ module.exports = {
         const { name, email, password } = request.body;
         
         let user = { name, email, password }
-        let sql = 'INSERT INTO users SET ?';
-        db.query(sql, user, (err, result) => {
+        let sql = `DELETE FROM users WHERE id = ${request.params.id}`;
+        db.query(sql, user, (err) => {
             if(err) throw err;
+            return response.json({ message: 'User deleted!' });
         });
-        return response.json({ message: 'User succesfully created!' });
     }
 }
