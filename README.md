@@ -5,9 +5,10 @@ Simple Todo List API with Node and MySQL.
 To use this application you must have MySQL and NPM or Yarn installed in your machine.
 
 ### 1. Create MySQL database and tables
-CREATE DATABASE todoNode;
 
-CREATE TABLE `tasks` (
+    CREATE DATABASE todoNode;
+    
+    CREATE TABLE `tasks` (
 	  `id` bigint NOT NULL AUTO_INCREMENT,
 	  `title` varchar(255) NOT NULL,
 	  `description` text NOT NULL,
@@ -15,16 +16,17 @@ CREATE TABLE `tasks` (
 	  `user_id` bigint UNSIGNED NOT NULL,
 	  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	  PRIMARY KEY (`id`)
-);
-
-CREATE TABLE `users` (
+	);
+	
+	CREATE TABLE `users` (
 	  `id` bigint NOT NULL AUTO_INCREMENT,
 	  `name` varchar(255) NOT NULL,
 	  `email` varchar(255) NOT NULL,
 	  `password` varchar(50) NOT NULL,
 	  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	  PRIMARY KEY (`id`)
-);
+	);
+
 
 
 ### 2. Install Dependencies 
@@ -44,3 +46,8 @@ Create a *.env* file in the project root directory and change the values accordi
 In your terminal, go to the project root directory and *npm run dev* or *yarn dev*.
 
 #### The application is running! Enjoy it!
+
+
+
+
+
