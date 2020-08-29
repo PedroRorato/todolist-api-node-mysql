@@ -37,7 +37,7 @@ In your terminal, go to the project root directory and execute *npm install* or 
 Create a *.env* file in the project root directory and change the values according to your MySQL configurations:
 
     DB_HOST=localhost
-    DB_USER=root
+    DB_USER=username
     DB_PASS=password
     DB_DATABASE=todoNode
 
