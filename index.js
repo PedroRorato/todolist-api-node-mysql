@@ -1,11 +1,11 @@
 const express = require('express');
-const { json } = require('express');
+require('dotenv/config');
 
 //Initialize App
 const app = express();
 
 //Alow JSON
-app.use(json());
+app.use(express.json());
 
 //Routes
 app.use('/', require("./src/routes"));
