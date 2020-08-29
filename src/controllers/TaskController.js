@@ -31,12 +31,25 @@ module.exports = {
         });
     },
 
-    async update(request, response) {
+    async updateTexts(request, response) {
 
         const { title, description } = request.body;
         
         let sql = `UPDATE tasks SET
             title = '${title}', description = '${description}'
+            WHERE id = ${request.params.id}`;
+        db.query(sql, (err) => {
+            if(err) throw err;
+            return response.json({ message: 'User succesfully updated!' });
+        });
+    },
+
+    async updateStatus(request, response) {
+
+        const { status } = request.body;
+        
+        let sql = `UPDATE tasks SET
+            status = '${status}'
             WHERE id = ${request.params.id}`;
         db.query(sql, (err) => {
             if(err) throw err;

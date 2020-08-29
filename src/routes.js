@@ -7,7 +7,8 @@ const UserController = require('./controllers/UserController');
 routes.get('/tasks', TaskController.index );
 routes.get('/tasks/:id', TaskController.show );
 routes.post('/tasks', TaskController.store );
-routes.put('/tasks/:id', TaskController.update );
+routes.put('/tasks/:id', TaskController.updateTexts );
+routes.patch('/tasks/:id', TaskController.updateStatus );
 routes.delete('/tasks/:id', TaskController.destroy );
 
 routes.get('/users', UserController.index );
